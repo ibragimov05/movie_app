@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		EF5B1BC82F9B970C00462B80 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EF5B1BC72F9B970700462B80 /* README.md */; };
+		EFBFA0292F9F68970085A435 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EFBFA0282F9F68970085A435 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EF5B1BB82F9B95B300462B80 /* movie_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movie_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5B1BC72F9B970700462B80 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EFBFA0282F9F68970085A435 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				EF5B1BC72F9B970700462B80 /* README.md */,
+				EFBFA0282F9F68970085A435 /* .gitignore */,
 				EF5B1BBA2F9B95B300462B80 /* movie_app */,
 				EF5B1BB92F9B95B300462B80 /* Products */,
 			);
@@ -115,6 +118,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFBFA0292F9F68970085A435 /* .gitignore in Resources */,
 				EF5B1BC82F9B970C00462B80 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
