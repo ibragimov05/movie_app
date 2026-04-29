@@ -38,17 +38,36 @@ struct Constants {
         "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
 
     static let posterURLStart = "https://image.tmdb.org/t/p/w500"
+
+    static func addPosterPath(to titles: inout [Title]) {
+        for index in titles.indices {
+            if let path = titles[index].posterPath {
+                titles[index].posterPath = Constants.posterURLStart + path
+            }
+        }
+    }
 }
 
 extension Text {
     func ghostButton() -> some View {
         self
-            .frame(width: 100, height: 50)
-            .foregroundStyle(.buttonText)
+            .frame(
+                width: 100,
+                height: 50
+            )
+            .foregroundStyle(
+                .buttonText
+            )
             .bold()
             .background {
-                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .stroke(.buttonBorder, lineWidth: 5)
+                RoundedRectangle(
+                    cornerRadius: 20,
+                    style: .continuous
+                )
+                .stroke(
+                    .buttonBorder,
+                    lineWidth: 5
+                )
             }
     }
 }

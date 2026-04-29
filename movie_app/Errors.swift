@@ -17,9 +17,28 @@ enum APIConfigError: Error, LocalizedError {
         case .fileNotFound:
             return "API configuration file not found"
         case .dataLoadingFailed(underlyingError: let error):
-            return "Failed to load API configuration data: \(error.localizedDescription)"
+            return
+                "Failed to load API configuration data: \(error.localizedDescription)"
         case .decodingFailed(underlyingError: let error):
-            return "Failed to decode API configuration: \(error.localizedDescription)"
+            return
+                "Failed to decode API configuration: \(error.localizedDescription)"
+        }
+    }
+}
+
+enum NetworkError: Error, LocalizedError {
+    case badURLResponse(underlyingError: Error)
+    case missingConfig
+    case urlBuildFailed
+
+    var errorDescription: String? {
+        switch self {
+        case .badURLResponse(underlyingError: let error):
+            return "Bad URL response: \(error.localizedDescription)"
+        case .missingConfig:
+            return "API configuration is missing"
+        case .urlBuildFailed:
+            return "Failed to build URL"
         }
     }
 }

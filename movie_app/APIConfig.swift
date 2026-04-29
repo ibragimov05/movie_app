@@ -15,7 +15,7 @@ struct APIConfig: Decodable {
         do {
             return try loadConfig()
         } catch {
-            print("Failed to laod APIConfig: \(error.localizedDescription)")
+            print("Failed to load APIConfig: \(error.localizedDescription)")
             return nil
         }
     }()
@@ -24,7 +24,7 @@ struct APIConfig: Decodable {
         guard
             let url = Bundle.main.url(
                 forResource: "APIConfig",
-                withExtension: "jfewson"
+                withExtension: "json"
             )
         else {
             throw APIConfigError.fileNotFound
