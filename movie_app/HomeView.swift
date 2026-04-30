@@ -77,32 +77,42 @@ struct HomeView: View {
                             HorizontalListView(
                                 header: Constants.trendingMovieString,
                                 titles: viewModel.trendingMovies
-                            )
+                            ) { title in
+                                titleDetailPath.append(title)
+                            }
                             HorizontalListView(
                                 header: Constants.trendingTVString,
                                 titles: viewModel.trendingTV
-                            )
+                            ) { title in
+                                titleDetailPath.append(title)
+                            }
                             HorizontalListView(
-                                header: Constants.topRatedMovieString,
+                                header: Constants.`topRatedMovieString`,
                                 titles: viewModel.topRatedMovies
-                            )
+                            ) { title in
+                                titleDetailPath.append(title)
+                            }
                             HorizontalListView(
                                 header: Constants.topRatedTVString,
                                 titles: viewModel.topRatedTV
-                            )
-                        }.navigationDestination(
-                            for: Title.self,
-                            destination: { title in
-                                TitleDetailView(title: title)
+                            ) { title in
+                                titleDetailPath.append(title)
                             }
-                        )
+                        }
                     case .failed(let error):
                         Text("Error: \(error.localizedDescription)")
                     }
 
-                }.task {
+                }
+                .task {
                     await viewModel.getTitles()
                 }
+                .navigationDestination(
+                    for: Title.self,
+                    destination: { title in
+                        TitleDetailView(title: title)
+                    }
+                )
             }
         }
     }
